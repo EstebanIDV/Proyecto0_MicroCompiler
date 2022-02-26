@@ -1,0 +1,3 @@
+C:/Users/eidur/CLionProjects/MicroCompiler/cmake-build-debug/CMakeFiles/MicroCompiler.dir
+C:/Users/eidur/CLionProjects/MicroCompiler/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/eidur/CLionProjects/MicroCompiler/cmake-build-debug/CMakeFiles/rebuild_cache.dir
