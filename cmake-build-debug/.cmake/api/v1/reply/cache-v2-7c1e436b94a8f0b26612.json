@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/cmake-build-debug"
+			"value" : "/home/david/Documents/Proyecto0_MicroCompiler/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "-j8"
+			"value" : "-j4"
 		},
 		{
 			"name" : "CMAKE_COLOR_MAKEFILE",
@@ -155,7 +155,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/esteban/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/bin/cmake/linux/bin/cmake"
+			"value" : "/snap/clion/180/bin/cmake/linux/bin/cmake"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -167,7 +167,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/esteban/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/bin/cmake/linux/bin/cpack"
+			"value" : "/snap/clion/180/bin/cmake/linux/bin/cpack"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -179,7 +179,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/esteban/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/bin/cmake/linux/bin/ctest"
+			"value" : "/snap/clion/180/bin/cmake/linux/bin/ctest"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER",
@@ -527,7 +527,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/esteban/Desktop/Progras/Proyecto0_MicroCompiler"
+			"value" : "/home/david/Documents/Proyecto0_MicroCompiler"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -815,7 +815,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/esteban/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/bin/cmake/linux/share/cmake-3.21"
+			"value" : "/snap/clion/180/bin/cmake/linux/share/cmake-3.21"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1063,7 +1063,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/cmake-build-debug"
+			"value" : "/home/david/Documents/Proyecto0_MicroCompiler/cmake-build-debug"
 		},
 		{
 			"name" : "MicroCompiler_IS_TOP_LEVEL",
@@ -1087,7 +1087,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/esteban/Desktop/Progras/Proyecto0_MicroCompiler"
+			"value" : "/home/david/Documents/Proyecto0_MicroCompiler"
 		},
 		{
 			"name" : "ProcessorCount_cmd_nproc",

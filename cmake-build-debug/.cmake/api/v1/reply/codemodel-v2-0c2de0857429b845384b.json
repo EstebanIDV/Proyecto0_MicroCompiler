@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/cmake-build-debug",
-		"source" : "/home/esteban/Desktop/Progras/Proyecto0_MicroCompiler"
+		"build" : "/home/david/Documents/Proyecto0_MicroCompiler/cmake-build-debug",
+		"source" : "/home/david/Documents/Proyecto0_MicroCompiler"
 	},
 	"version" : 
 	{

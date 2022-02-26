@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/esteban/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/180/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/esteban/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/180/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/esteban/Desktop/Progras/Proyecto0_MicroCompiler
+CMAKE_SOURCE_DIR = /home/david/Documents/Proyecto0_MicroCompiler
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/cmake-build-debug
+CMAKE_BINARY_DIR = /home/david/Documents/Proyecto0_MicroCompiler/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/MicroCompiler.dir/depend.make
@@ -72,30 +72,30 @@ include CMakeFiles/MicroCompiler.dir/flags.make
 CMakeFiles/MicroCompiler.dir/main.c.o: CMakeFiles/MicroCompiler.dir/flags.make
 CMakeFiles/MicroCompiler.dir/main.c.o: ../main.c
 CMakeFiles/MicroCompiler.dir/main.c.o: CMakeFiles/MicroCompiler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/MicroCompiler.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/MicroCompiler.dir/main.c.o -MF CMakeFiles/MicroCompiler.dir/main.c.o.d -o CMakeFiles/MicroCompiler.dir/main.c.o -c /home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/Documents/Proyecto0_MicroCompiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/MicroCompiler.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/MicroCompiler.dir/main.c.o -MF CMakeFiles/MicroCompiler.dir/main.c.o.d -o CMakeFiles/MicroCompiler.dir/main.c.o -c /home/david/Documents/Proyecto0_MicroCompiler/main.c
 
 CMakeFiles/MicroCompiler.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MicroCompiler.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/main.c > CMakeFiles/MicroCompiler.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/david/Documents/Proyecto0_MicroCompiler/main.c > CMakeFiles/MicroCompiler.dir/main.c.i
 
 CMakeFiles/MicroCompiler.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MicroCompiler.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/main.c -o CMakeFiles/MicroCompiler.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/david/Documents/Proyecto0_MicroCompiler/main.c -o CMakeFiles/MicroCompiler.dir/main.c.s
 
 CMakeFiles/MicroCompiler.dir/translator.c.o: CMakeFiles/MicroCompiler.dir/flags.make
 CMakeFiles/MicroCompiler.dir/translator.c.o: ../translator.c
 CMakeFiles/MicroCompiler.dir/translator.c.o: CMakeFiles/MicroCompiler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/MicroCompiler.dir/translator.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/MicroCompiler.dir/translator.c.o -MF CMakeFiles/MicroCompiler.dir/translator.c.o.d -o CMakeFiles/MicroCompiler.dir/translator.c.o -c /home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/translator.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/Documents/Proyecto0_MicroCompiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/MicroCompiler.dir/translator.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/MicroCompiler.dir/translator.c.o -MF CMakeFiles/MicroCompiler.dir/translator.c.o.d -o CMakeFiles/MicroCompiler.dir/translator.c.o -c /home/david/Documents/Proyecto0_MicroCompiler/translator.c
 
 CMakeFiles/MicroCompiler.dir/translator.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MicroCompiler.dir/translator.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/translator.c > CMakeFiles/MicroCompiler.dir/translator.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/david/Documents/Proyecto0_MicroCompiler/translator.c > CMakeFiles/MicroCompiler.dir/translator.c.i
 
 CMakeFiles/MicroCompiler.dir/translator.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MicroCompiler.dir/translator.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/translator.c -o CMakeFiles/MicroCompiler.dir/translator.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/david/Documents/Proyecto0_MicroCompiler/translator.c -o CMakeFiles/MicroCompiler.dir/translator.c.s
 
 # Object files for target MicroCompiler
 MicroCompiler_OBJECTS = \
@@ -109,7 +109,7 @@ MicroCompiler: CMakeFiles/MicroCompiler.dir/main.c.o
 MicroCompiler: CMakeFiles/MicroCompiler.dir/translator.c.o
 MicroCompiler: CMakeFiles/MicroCompiler.dir/build.make
 MicroCompiler: CMakeFiles/MicroCompiler.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable MicroCompiler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/david/Documents/Proyecto0_MicroCompiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable MicroCompiler"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MicroCompiler.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -121,6 +121,6 @@ CMakeFiles/MicroCompiler.dir/clean:
 .PHONY : CMakeFiles/MicroCompiler.dir/clean
 
 CMakeFiles/MicroCompiler.dir/depend:
-	cd /home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/esteban/Desktop/Progras/Proyecto0_MicroCompiler /home/esteban/Desktop/Progras/Proyecto0_MicroCompiler /home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/cmake-build-debug /home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/cmake-build-debug /home/esteban/Desktop/Progras/Proyecto0_MicroCompiler/cmake-build-debug/CMakeFiles/MicroCompiler.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/david/Documents/Proyecto0_MicroCompiler/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/david/Documents/Proyecto0_MicroCompiler /home/david/Documents/Proyecto0_MicroCompiler /home/david/Documents/Proyecto0_MicroCompiler/cmake-build-debug /home/david/Documents/Proyecto0_MicroCompiler/cmake-build-debug /home/david/Documents/Proyecto0_MicroCompiler/cmake-build-debug/CMakeFiles/MicroCompiler.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/MicroCompiler.dir/depend
 

@@ -61,12 +61,11 @@ void expression(expr_rec *result){
         add_op(& op);
         primary(& right_operand);
         //left_operand= gen_infix(left_operand,op,right_operand);
-
     }
-    *result=left_operand
+    *result=left_operand;
 }
 
-void expr_list(void){
+void expr_list(void){;
     expression();
 }
 void id_list(void)

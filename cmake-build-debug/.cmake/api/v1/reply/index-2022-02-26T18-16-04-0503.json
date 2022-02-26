@@ -8,10 +8,10 @@
 		},
 		"paths" : 
 		{
-			"cmake" : "/home/esteban/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/bin/cmake/linux/bin/cmake",
-			"cpack" : "/home/esteban/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/bin/cmake/linux/bin/cpack",
-			"ctest" : "/home/esteban/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/bin/cmake/linux/bin/ctest",
-			"root" : "/home/esteban/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/bin/cmake/linux/share/cmake-3.21"
+			"cmake" : "/snap/clion/180/bin/cmake/linux/bin/cmake",
+			"cpack" : "/snap/clion/180/bin/cmake/linux/bin/cpack",
+			"ctest" : "/snap/clion/180/bin/cmake/linux/bin/ctest",
+			"root" : "/snap/clion/180/bin/cmake/linux/share/cmake-3.21"
 		},
 		"version" : 
 		{
@@ -26,7 +26,7 @@
 	"objects" : 
 	[
 		{
-			"jsonFile" : "codemodel-v2-87cfd30873c487fb83ae.json",
+			"jsonFile" : "codemodel-v2-0c2de0857429b845384b.json",
 			"kind" : "codemodel",
 			"version" : 
 			{
@@ -35,7 +35,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cache-v2-7e07413d20de6276011b.json",
+			"jsonFile" : "cache-v2-7c1e436b94a8f0b26612.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -44,7 +44,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cmakeFiles-v1-1e81615b7b961e449f8c.json",
+			"jsonFile" : "cmakeFiles-v1-1c250ddfee65edaba658.json",
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -66,7 +66,7 @@
 	{
 		"cache-v2" : 
 		{
-			"jsonFile" : "cache-v2-7e07413d20de6276011b.json",
+			"jsonFile" : "cache-v2-7c1e436b94a8f0b26612.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -76,7 +76,7 @@
 		},
 		"cmakeFiles-v1" : 
 		{
-			"jsonFile" : "cmakeFiles-v1-1e81615b7b961e449f8c.json",
+			"jsonFile" : "cmakeFiles-v1-1c250ddfee65edaba658.json",
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -86,7 +86,7 @@
 		},
 		"codemodel-v2" : 
 		{
-			"jsonFile" : "codemodel-v2-87cfd30873c487fb83ae.json",
+			"jsonFile" : "codemodel-v2-0c2de0857429b845384b.json",
 			"kind" : "codemodel",
 			"version" : 
 			{

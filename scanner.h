@@ -7,7 +7,10 @@
 
 #endif //MICROCOMPILER_SCANNER_H
 #include "types.h"
-void clear_buffer();
-void buffer_char(char c);
-void lexical_error(char c);
-token check_reserved(char c);
+
+extern token scanner(void);
+extern void clear_buffer(void);
+extern void buffer_char(int c);
+extern void lexical_error(int c);
+extern token check_reserved(void);
+extern is_equal(char* temp, char* token);

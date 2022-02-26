@@ -10,6 +10,14 @@
 
 #include "types.h"
 
-void match(token t);
-void syntax_error(token t);
-token next_token();
+extern void match(token t);
+extern void syntax_error(token t);
+extern token next_token();
+extern void primary (expr_rec *nextexpr);
+extern void add_op(op_rec *operator);
+extern void expression(expr_rec *result);
+extern void expr_list(void);
+extern void id_list(void);
+extern void statement_list(void);
+extern void program(void);
+extern void system_goal(void);
