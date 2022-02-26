@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/MicroCompiler.dir/main.c.o CMakeFiles/MicroCompiler.dir/translator.c.o -o MicroCompiler 

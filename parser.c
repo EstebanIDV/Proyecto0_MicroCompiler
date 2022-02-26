@@ -6,7 +6,7 @@
 #include <ctype.h>
 #include "types.h"
 #include "parser.h"
-void primary (void){
+void primary (expr_rec *nextexpr){
     token tok = next_token();
 
     switch (tok) {
@@ -28,7 +28,7 @@ void primary (void){
     }
 }
 
-void add_op(void){
+void add_op(op_rec *operator){
     token tok = next_token();
     if (tok == PLUSOP || tok == MINUSOP)
         match(tok);
@@ -36,14 +36,34 @@ void add_op(void){
         syntax_error(tok);
 }
 
-
-void expression(void){
+/*
+ *
+ *
+ *
+ void expression(void){
     token t;
     primary();
     for (t = next_token();  t ==PLUSOP || t== MINUSOP; t=next_token()) {
         add_op();
         primary();
     }
+}
+ *
+ *
+ */
+
+void expression(expr_rec *result){
+    expr_rec left_operand, right_operand;
+    op_rec op;
+
+    primary(& left_operand);
+    while (next_token()==PLUSOP|| next_token()==MINUSOP){
+        add_op(& op);
+        primary(& right_operand);
+        //left_operand= gen_infix(left_operand,op,right_operand);
+
+    }
+    *result=left_operand
 }
 
 void expr_list(void){
