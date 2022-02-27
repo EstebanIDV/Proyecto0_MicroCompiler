@@ -21,3 +21,4 @@ extern void id_list(void);
 extern void statement_list(void);
 extern void program(void);
 extern void system_goal(void);
+extern void statement(void);

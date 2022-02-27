@@ -6,6 +6,11 @@
 #include <ctype.h>
 #include "types.h"
 #include "parser.h"
+#include "scanner.h"
+#include <stdlib.h>
+
+extern token current_token;
+
 void primary (expr_rec *nextexpr){
     token tok = next_token();
 
@@ -65,11 +70,18 @@ void expression(expr_rec *result){
     *result=left_operand;
 }
 
-void expr_list(void){;
+void expr_list(void){
+    /* <exp list> ::= <expression> { , <expression>} */
     expression();
+
+    while (next_token() == COMMA) {
+        match(COMMA);
+        expression();
+    }
 }
 void id_list(void)
 {
+    /* <id list> ::= ID ( , ID) */
     match(ID);
     while (next_token()==COMMA){
         match(COMMA);
@@ -131,3 +143,21 @@ void system_goal(void ){
     program();
     match(SCANEOF);
 }
+
+token next_token(){
+    current_token = scanner();
+    return current_token;
+};
+
+void match(token t){
+    if (t == scanner()){
+        current_token = t;
+    } else{
+        syntax_error(t);
+    }
+}
+
+extern void syntax_error(token t){
+    fprintf(stdout, "Syntax Error in %s token. Expected %i instead.", token_buffer, t);
+    exit(1);
+};

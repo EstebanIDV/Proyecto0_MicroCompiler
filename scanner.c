@@ -116,6 +116,6 @@ int is_equal(char* temp, char* token)
 }
 
 void lexical_error(int in_char){
-    printf(stderr, "Lexical Error located in: %c", in_char);
+    fprintf(stderr, "Lexical Error located in: %c", in_char);
     exit(1);
 }

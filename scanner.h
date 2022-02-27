@@ -8,6 +8,7 @@
 #endif //MICROCOMPILER_SCANNER_H
 #include "types.h"
 
+extern char token_buffer[];
 extern token scanner(void);
 extern void clear_buffer(void);
 extern void buffer_char(int c);
