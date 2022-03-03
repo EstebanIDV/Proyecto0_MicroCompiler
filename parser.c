@@ -145,12 +145,11 @@ void system_goal(void ){
 }
 
 token next_token(){
-    current_token = scanner();
-    return current_token;
+    return scanner();
 };
 
 void match(token t){
-    if (t == scanner()){
+    if (t == next_token()){
         current_token = t;
     } else{
         syntax_error(t);
