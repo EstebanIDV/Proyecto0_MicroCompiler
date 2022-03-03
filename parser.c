@@ -10,6 +10,7 @@
 #include <stdlib.h>
 
 extern token current_token;
+token nxt_token;
 
 void primary (expr_rec *nextexpr){
     token tok = next_token();
@@ -141,21 +142,44 @@ void program(void)
 
 void system_goal(void ){
     program();
+    nxt_token=scanner();
     match(SCANEOF);
 }
-
 token next_token(){
-    return scanner();
+    return nxt_token;
+};
+
+void match(token t) {
+    current_token = next_token();
+    if (current_token != SCANEOF) {
+        nxt_token = scanner();
+    }
+    if (t != current_token) {
+        syntax_error(t);
+    }
+}
+/*
+token next_token(){
+    current_token = scanner();
+    return current_token;
 };
 
 void match(token t){
-    if (t == next_token()){
+    if (t == scanner()){
         current_token = t;
     } else{
         syntax_error(t);
     }
-}
 
+
+    current_token = next_token();
+    if (t != current_token) {
+        syntax_error(t);;
+    } else if (current_token != SCANEOF) {
+        nxt_token = scanner();
+    }
+}
+*/
 extern void syntax_error(token t){
     fprintf(stdout, "Syntax Error in %s token. Expected %i instead.", token_buffer, t);
     exit(1);
