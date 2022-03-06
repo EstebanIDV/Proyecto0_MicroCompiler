@@ -7,6 +7,7 @@
 #include "types.h"
 #include "parser.h"
 #include "scanner.h"
+#include "translator.c"
 #include <stdlib.h>
 
 extern token current_token;
@@ -18,6 +19,7 @@ void primary (expr_rec *nextexpr){
     switch (tok) {
         case LPAREN:
             match(LPAREN);
+            expression(nextexpr);
             match(RPAREN);
             break;
         case ID:
@@ -73,11 +75,13 @@ void expression(expr_rec *result){
 
 void expr_list(void){
     /* <exp list> ::= <expression> { , <expression>} */
-    expression();
+    expr_rec tempExpr;
+    expression(&tempExpr);
+    //Write expression in file?
 
     while (next_token() == COMMA) {
         match(COMMA);
-        expression();
+        expression(&tempExpr);
     }
 }
 void id_list(void)
@@ -96,7 +100,9 @@ void statement(void){
         case ID:
             match(ID);
             match(ASSIGNOP);
-            expression();
+            expr_rec tempExpr;
+            expression(&tempExpr);
+            //Write expression in file?
             match(SEMICOLON);
             break;
         case READ:
@@ -144,6 +150,7 @@ void system_goal(void ){
     program();
     nxt_token=scanner();
     match(SCANEOF);
+    finish();
 }
 token next_token(){
     return nxt_token;

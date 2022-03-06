@@ -93,7 +93,7 @@ extern token check_reserved(void){
 
 extern void clear_buffer(void){
     for (int i = strlen(token_buffer); i >= 0; --i) {
-        token_buffer[i] = 0;
+        token_buffer[i] = '\0';
     }
 }
 
