@@ -1,0 +1,8 @@
+//
+// Created by diegomv on 6/3/22.
+//
+
+#ifndef MICROCOMPILER_SYMBOLS_TABLE_H
+#define MICROCOMPILER_SYMBOLS_TABLE_H
+
+#endif //MICROCOMPILER_SYMBOLS_TABLE_H
