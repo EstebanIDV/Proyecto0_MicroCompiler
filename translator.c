@@ -14,7 +14,28 @@
 extern int lookup(string s);
 extern void enter(string s);
 
-void generate(char *opcode, char *operand1, char *operand2, char *operand3){
+char * extractoperator(op_rec op){
+    switch (op.operator) {
+        case PLUS:
+            return "add";
+        case MINUS:
+            return "sub";
+    }
+}
+char * extractexpression(expr_rec exp){
+    string tostring = "";
+    switch (exp.kind) {
+        case IDEXPR:
+        case TEMPEXPR:
+            sprintf(tostring, "%s",exp.name);
+            return tostring;
+        case LITERALEXPR:
+            sprintf(tostring, "%d", exp.val);
+            return tostring;
+    }
+}
+
+void generate(char *opcode, char *operand1, char *operand2){
     char instruction[200];
     FILE *fileOutput;
     fileOutput = fopen (filename, "w");
@@ -27,10 +48,7 @@ void generate(char *opcode, char *operand1, char *operand2, char *operand3){
             strcat(instruction, " ");
             strcat(instruction, operand2);
     }
-    if(strcmp(operand3,"")!=0){
-            strcat(instruction, " ");
-            strcat(instruction, operand3);
-    }
+
     strcat(instruction, "\n");
 
     fputs(instruction, fileOutput);
@@ -42,7 +60,7 @@ void generate(char *opcode, char *operand1, char *operand2, char *operand3){
 void check_id(string s){
     if(! lookup(s)){
         enter(s);
-        generate("Declare", s, "Integer", "");
+        generate("Declare", s, "Integer");
     }
 }
 
@@ -77,7 +95,7 @@ void finish(void)
 
 void assign(expr_rec target, expr_rec source)
 {
-    generate("Store", extract(source), target, target.name);
+    generate("Store", extractexpression(source), extractexpression(target));
 }
 
 
@@ -89,6 +107,7 @@ op_rec process_op(void)
     } else{
         o.operator=MINUS;
     }
+    return o;
 }
 
 expr_rec gen_infix(expr_rec e1, op_rec op, expr_rec e2){
@@ -96,8 +115,8 @@ expr_rec gen_infix(expr_rec e1, op_rec op, expr_rec e2){
     e_rec.kind = TEMPEXPR;
 
     strcpy(e_rec.name, get_temp());
-    generate(extract(op), extract(e1),
-             extract(e2), e_rec.name);
+    generate(extractoperator(op), extractexpression(e1),
+             extractexpression(e2));
 
     return e_rec;
 }
@@ -105,7 +124,7 @@ expr_rec gen_infix(expr_rec e1, op_rec op, expr_rec e2){
 
 void read_id(expr_rec in_var)
 {
-    generate("Read", in_var.name, "Integer", "");
+    generate("Read", in_var.name, "Integer");
 
 }
 

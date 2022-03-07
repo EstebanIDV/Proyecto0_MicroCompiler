@@ -36,12 +36,18 @@ void primary (expr_rec *nextexpr){
     }
 }
 
-void add_op(op_rec *operator){
+void add_op(op_rec *oper){
     token tok = next_token();
     if (tok == PLUSOP || tok == MINUSOP)
         match(tok);
     else
         syntax_error(tok);
+    if(tok==PLUSOP){
+        oper->operator = PLUS;
+    }else{
+        oper->operator =MINUS;
+    }
+
 }
 
 /*
