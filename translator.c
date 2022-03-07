@@ -19,26 +19,23 @@ void generate(char *opcode, char *operand1, char *operand2, char *operand3){
     FILE *fileOutput;
     fileOutput = fopen ("file_name", "w");
     strcat(instruction, opcode);
-    if(strcmpi(operand1,"")!=0){
+    if(strcmp(operand1,"")!=0){
         strcat(instruction, " ");
         strcat(instruction, operand1);
     }
-    if(strcmpi(operand2,"")!=0){
+    if(strcmp(operand2,"")!=0){
             strcat(instruction, " ");
             strcat(instruction, operand2);
     }
-    if(strcmpi(operand3,"")!=0){
+    if(strcmp(operand3,"")!=0){
             strcat(instruction, " ");
             strcat(instruction, operand3);
     }
     strcat(instruction, "\n");
 
-
     fputs(instruction, fileOutput);
 
     fclose(fileOutput);
-
-
 }
 
 
@@ -80,7 +77,7 @@ void finish(void)
 
 void assign(expr_rec target, expr_rec source)
 {
-    generate("Store", extract(source), target, target.name, "");
+    generate("Store", extract(source), target, target.name);
 }
 
 

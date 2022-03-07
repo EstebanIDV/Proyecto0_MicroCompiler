@@ -7,7 +7,7 @@
 #include "types.h"
 #include "parser.h"
 #include "scanner.h"
-#include "translator.c"
+#include "translator.h"
 #include <stdlib.h>
 
 extern token current_token;

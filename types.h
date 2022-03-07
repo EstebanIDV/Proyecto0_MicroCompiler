@@ -5,8 +5,12 @@
 #ifndef MICROCOMPILER_TYPES_H
 #define MICROCOMPILER_TYPES_H
 
-#endif //MICROCOMPILER_TYPES_H
+
 #include "stdbool.h"
+#define MAXIDLEN 33
+
+extern FILE *fptr;
+extern char filename[MAXIDLEN];
 
 typedef enum  token_types{
     BEGIN, END, READ, WRITE, ID, INTLITERAL,
@@ -15,8 +19,7 @@ typedef enum  token_types{
 } token;
 
 
-#define MAXIDLEN 33
-typedef  char string[MAXIDLEN];
+typedef char string[MAXIDLEN];
 
 typedef struct operator{
     enum op { PLUS, MINUS} operator;
@@ -32,3 +35,5 @@ typedef  struct  expression{
         int val;
     };
 } expr_rec;
+
+#endif //MICROCOMPILER_TYPES_H

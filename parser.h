@@ -5,9 +5,6 @@
 #ifndef MICROCOMPILER_PARSER_H
 #define MICROCOMPILER_PARSER_H
 
-#endif //MICROCOMPILER_PARSER_H
-
-
 #include "types.h"
 
 extern void match(token t);
@@ -22,3 +19,5 @@ extern void statement_list(void);
 extern void program(void);
 extern void system_goal(void);
 extern void statement(void);
+
+#endif //MICROCOMPILER_PARSER_H
