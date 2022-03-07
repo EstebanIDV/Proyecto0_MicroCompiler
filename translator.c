@@ -89,7 +89,6 @@ op_rec process_op(void)
     } else{
         o.operator=MINUS;
     }
-
 }
 
 expr_rec gen_infix(expr_rec e1, op_rec op, expr_rec e2){

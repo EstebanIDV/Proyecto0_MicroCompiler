@@ -148,8 +148,8 @@ void program(void)
 
 void system_goal(void ){
     start();
-    program();
     nxt_token=scanner();
+    program();
     match(SCANEOF);
     finish();
 }

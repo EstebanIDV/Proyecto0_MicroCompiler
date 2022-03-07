@@ -14,23 +14,23 @@ extern char token_buffer[];
 token scanner(void){
     int in_char, c;
     clear_buffer();
-    if(feof(stdin)){
+    if(feof(fptr)){
         return SCANEOF;
     }
-    while((in_char=getchar())!=EOF){
+    while((in_char=fgetc(fptr))!=EOF){
         if(isspace(in_char))
             continue;
         else if(isalpha(in_char)){
             buffer_char(in_char);
-            for(c=getchar(); isalnum(c) || c=='_';c=getchar())
+            for(c=fgetc(fptr); isalnum(c) || c=='_';c=fgetc(fptr))
                 buffer_char(c);
-            ungetc(c,stdin);
+            ungetc(c,fptr);
             return check_reserved();
         } else if (isdigit(in_char)){
             buffer_char(in_char);
-            for(c=getchar(); isdigit(c); c=getchar())
+            for(c=fgetc(fptr); isdigit(c); c=fgetc(fptr))
                 buffer_char(c);
-            ungetc(c, stdin);
+            ungetc(c, fptr);
             return INTLITERAL;
         } else if(in_char=='(')
             return  LPAREN;
@@ -43,22 +43,22 @@ token scanner(void){
         else if (in_char=='+')
             return PLUSOP;
         else if (in_char==':'){
-            c=getchar();
+            c=fgetc(fptr);
             if(c=='=')
                 return ASSIGNOP;
             else{
-                ungetc(c, stdin);
+                ungetc(c, fptr);
                 lexical_error(in_char);
             }
 
         } else if (in_char=='-'){
-            c=getchar();
+            c=fgetc(fptr);
             if(c=='-'){
                 do
-                    in_char = getchar();
+                    in_char = fgetc(fptr);
                 while (in_char!='\n');
             } else{
-                ungetc(c, stdin);
+                ungetc(c, fptr);
                 return MINUSOP;
             }
         } else
