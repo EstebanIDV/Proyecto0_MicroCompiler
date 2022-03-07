@@ -17,7 +17,7 @@ extern void enter(string s);
 void generate(char *opcode, char *operand1, char *operand2, char *operand3){
     char instruction[200];
     FILE *fileOutput;
-    fileOutput = fopen ("file_name", "w");
+    fileOutput = fopen (filename, "w");
     strcat(instruction, opcode);
     if(strcmp(operand1,"")!=0){
         strcat(instruction, " ");
@@ -60,7 +60,7 @@ char *get_temp()
 void start(void)
 {
     FILE *fileOutput;
-    fileOutput = fopen ("file_name", "w");
+    fileOutput = fopen (filename, "w");
     if(fileOutput==NULL){
         printf("Error opening file. Start in translator.c");
         exit(1);

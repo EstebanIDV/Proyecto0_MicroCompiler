@@ -14,6 +14,6 @@ extern void clear_buffer(void);
 extern void buffer_char(int c);
 extern void lexical_error(int c);
 extern token check_reserved(void);
-extern is_equal(char* temp, char* token);
+extern int is_equal(char* temp, char* token);
 
 #endif //MICROCOMPILER_SCANNER_H

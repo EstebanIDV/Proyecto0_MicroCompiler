@@ -68,7 +68,7 @@ void expression(expr_rec *result){
     while (next_token()==PLUSOP|| next_token()==MINUSOP){
         add_op(& op);
         primary(& right_operand);
-        //left_operand= gen_infix(left_operand,op,right_operand);
+        left_operand= gen_infix(left_operand,op,right_operand);
     }
     *result=left_operand;
 }
@@ -147,6 +147,7 @@ void program(void)
 }
 
 void system_goal(void ){
+    start();
     program();
     nxt_token=scanner();
     match(SCANEOF);

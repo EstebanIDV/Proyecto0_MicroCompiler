@@ -19,5 +19,6 @@ extern void statement_list(void);
 extern void program(void);
 extern void system_goal(void);
 extern void statement(void);
+extern expr_rec gen_infix(expr_rec l_operand,op_rec operand,expr_rec r_operand);
 
 #endif //MICROCOMPILER_PARSER_H
