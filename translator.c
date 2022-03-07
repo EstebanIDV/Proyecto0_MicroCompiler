@@ -9,10 +9,12 @@
 #include "string.h"
 #include "translator.h"
 #include "parser.c"
+#include "symbols_table.c"
 
 
-extern int lookup(string s);
-extern void enter(string s);
+// For sym table
+//extern int lookup(string s); // Check variable already exists
+//extern void enter(string s); // Declare variable
 
 void generate(char *opcode, char *operand1, char *operand2, char *operand3){
     char instruction[200];
@@ -73,6 +75,22 @@ void start(void)
 void finish(void)
 {
     //declare data section
+    FILE *fileOutput;
+    fileOutput = fopen (filename, "w");
+    if(fileOutput==NULL){
+        printf("Error opening file. Start in translator.c");
+        exit(1);
+    }
+
+    // Creating data section
+    fputs("section .data \n", fileOutput);
+
+    // Writing each variable to data section an initializing each with 0
+    for (int i = 0; i < len(); ++i) {
+        fputs(symbolByIndex(i), fileOutput);
+        fputs(": dd 0 \n", fileOutput);
+    }
+    fclose(fileOutput);
 }
 
 void assign(expr_rec target, expr_rec source)
