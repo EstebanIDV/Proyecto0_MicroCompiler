@@ -15,5 +15,6 @@ int main(int argc, char** argv) {
         exit(1);
     }
     system_goal();
+    fclose(fptr);
     return 0;
 }

@@ -32,7 +32,6 @@ void primary (expr_rec *nextexpr){
         default:
             syntax_error(tok);
             break;
-        
     }
 }
 
