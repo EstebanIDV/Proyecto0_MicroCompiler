@@ -9,7 +9,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-extern char token_buffer[];
+FILE *fptr;
+char filename[MAXIDLEN];
+char token_buffer[];
 
 token scanner(void){
     int in_char, c;
@@ -64,7 +66,7 @@ token scanner(void){
         } else
             lexical_error(in_char);
     }
-
+    return SCANEOF;
 }
 
 extern void buffer_char(int c){

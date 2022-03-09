@@ -2,16 +2,19 @@
 // Created by eidur on 2/25/2022.
 //
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
-#include <ctype.h>
 #include "types.h"
 #include "parser.h"
 #include "scanner.h"
 #include "translator.h"
-#include <stdlib.h>
 
-extern token current_token;
+FILE *fptr;
+extern token nxt_token;
+char filename[MAXIDLEN];
+token current_token;
 token nxt_token;
+char token_buffer[];
 
 void primary (expr_rec *nextexpr){
     token tok = next_token();
@@ -152,7 +155,7 @@ void program(void)
     match(END);
 }
 
-void system_goal(void ){
+void system_goal(void){
     start();
     nxt_token=scanner();
     program();

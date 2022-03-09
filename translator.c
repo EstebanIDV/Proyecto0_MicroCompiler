@@ -3,14 +3,18 @@
 //
 
 #include <stdio.h>
-#include <stdbool.h>
-#include <ctype.h>
+#include <stdlib.h>
 #include "types.h"
 #include "string.h"
 #include "translator.h"
-#include "parser.c"
-#include "symbols_table.c"
+#include "parser.h"
+#include "symbols_table.h"
+#include "scanner.h"
 
+FILE *fptr;
+char filename[MAXIDLEN];
+token current_token;
+char token_buffer[];
 
 // For sym table
 //extern int lookup(string s); // Check variable already exists
@@ -23,9 +27,10 @@ char * extractoperator(op_rec op){
         case MINUS:
             return "sub";
     }
+    return "";
 }
 char * extractexpression(expr_rec exp){
-    string tostring = "";
+    static string tostring = "";
     switch (exp.kind) {
         case IDEXPR:
         case TEMPEXPR:
@@ -35,12 +40,13 @@ char * extractexpression(expr_rec exp){
             sprintf(tostring, "%d", exp.val);
             return tostring;
     }
+    return "";
 }
 
 void generate(char *opcode, char *operand1, char *operand2){
     char instruction[200];
     FILE *fileOutput;
-    fileOutput = fopen (filename, "w");
+    fileOutput = fopen (filename, "a+");
     strcat(instruction, "\t");
     strcat(instruction, opcode);
     if(strcmp(operand1,"")!=0){
@@ -81,6 +87,7 @@ char *get_temp()
 
 void start(void)
 {
+    printf("llegamos start.\n");
     FILE *fileOutput;
     fileOutput = fopen (filename, "w");
     if(fileOutput==NULL){
@@ -96,7 +103,7 @@ void finish(void)
 {
     //declare data section
     FILE *fileOutput;
-    fileOutput = fopen (filename, "w");
+    fileOutput = fopen (filename, "a+");
     if(fileOutput==NULL){
         printf("Error opening file. Start in translator.c");
         exit(1);
@@ -153,7 +160,6 @@ expr_rec gen_infix(expr_rec e1, op_rec op, expr_rec e2){
 void read_id(expr_rec in_var)
 {
     generate("Read", in_var.name, "Integer");
-
 }
 
 expr_rec process_id(void)
@@ -173,6 +179,6 @@ expr_rec process_literal(void){
 }
 
 void  write_expr(expr_rec out_expr){
-    generate("Write", extract(out_expr), "Integer");
+    //generate("Write", extract(out_expr), "Integer");
 }
 

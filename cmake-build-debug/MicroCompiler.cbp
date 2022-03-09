@@ -79,6 +79,18 @@
 		<Unit filename="/home/david/Documents/Proyecto0_MicroCompiler/main.c">
 			<Option target="MicroCompiler"/>
 		</Unit>
+		<Unit filename="/home/david/Documents/Proyecto0_MicroCompiler/parser.c">
+			<Option target="MicroCompiler"/>
+		</Unit>
+		<Unit filename="/home/david/Documents/Proyecto0_MicroCompiler/parser.h">
+			<Option target="MicroCompiler"/>
+		</Unit>
+		<Unit filename="/home/david/Documents/Proyecto0_MicroCompiler/scanner.c">
+			<Option target="MicroCompiler"/>
+		</Unit>
+		<Unit filename="/home/david/Documents/Proyecto0_MicroCompiler/scanner.h">
+			<Option target="MicroCompiler"/>
+		</Unit>
 		<Unit filename="/home/david/Documents/Proyecto0_MicroCompiler/symbols_table.c">
 			<Option target="MicroCompiler"/>
 		</Unit>
@@ -89,6 +101,9 @@
 			<Option target="MicroCompiler"/>
 		</Unit>
 		<Unit filename="/home/david/Documents/Proyecto0_MicroCompiler/translator.h">
+			<Option target="MicroCompiler"/>
+		</Unit>
+		<Unit filename="/home/david/Documents/Proyecto0_MicroCompiler/types.h">
 			<Option target="MicroCompiler"/>
 		</Unit>
 		<Unit filename="/home/david/Documents/Proyecto0_MicroCompiler/CMakeLists.txt">

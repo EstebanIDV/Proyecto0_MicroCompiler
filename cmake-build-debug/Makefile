@@ -153,6 +153,54 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MicroCompiler.dir/build.make CMakeFiles/MicroCompiler.dir/main.c.s
 .PHONY : main.c.s
 
+parser.o: parser.c.o
+.PHONY : parser.o
+
+# target to build an object file
+parser.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MicroCompiler.dir/build.make CMakeFiles/MicroCompiler.dir/parser.c.o
+.PHONY : parser.c.o
+
+parser.i: parser.c.i
+.PHONY : parser.i
+
+# target to preprocess a source file
+parser.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MicroCompiler.dir/build.make CMakeFiles/MicroCompiler.dir/parser.c.i
+.PHONY : parser.c.i
+
+parser.s: parser.c.s
+.PHONY : parser.s
+
+# target to generate assembly for a file
+parser.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MicroCompiler.dir/build.make CMakeFiles/MicroCompiler.dir/parser.c.s
+.PHONY : parser.c.s
+
+scanner.o: scanner.c.o
+.PHONY : scanner.o
+
+# target to build an object file
+scanner.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MicroCompiler.dir/build.make CMakeFiles/MicroCompiler.dir/scanner.c.o
+.PHONY : scanner.c.o
+
+scanner.i: scanner.c.i
+.PHONY : scanner.i
+
+# target to preprocess a source file
+scanner.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MicroCompiler.dir/build.make CMakeFiles/MicroCompiler.dir/scanner.c.i
+.PHONY : scanner.c.i
+
+scanner.s: scanner.c.s
+.PHONY : scanner.s
+
+# target to generate assembly for a file
+scanner.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MicroCompiler.dir/build.make CMakeFiles/MicroCompiler.dir/scanner.c.s
+.PHONY : scanner.c.s
+
 symbols_table.o: symbols_table.c.o
 .PHONY : symbols_table.o
 
@@ -213,6 +261,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... parser.o"
+	@echo "... parser.i"
+	@echo "... parser.s"
+	@echo "... scanner.o"
+	@echo "... scanner.i"
+	@echo "... scanner.s"
 	@echo "... symbols_table.o"
 	@echo "... symbols_table.i"
 	@echo "... symbols_table.s"

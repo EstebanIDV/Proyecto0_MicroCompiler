@@ -3,4 +3,4 @@ project(MicroCompiler C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(MicroCompiler main.c translator.c translator.h symbols_table.c symbols_table.h)
+add_executable(MicroCompiler main.c translator.c translator.h symbols_table.c symbols_table.h types.h parser.c parser.h scanner.c scanner.h)

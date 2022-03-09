@@ -17,5 +17,6 @@ extern void generate(char *opcode, char *operand1, char *operand2);
 extern string* extract(expr_rec expr); // Returns a pointer
 extern void finish(void);
 extern void start(void);
+extern expr_rec gen_infix(expr_rec e1, op_rec op, expr_rec e2);
 
 #endif //MICROCOMPILER_TRANSLATOR_H

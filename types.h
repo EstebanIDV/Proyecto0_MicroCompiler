@@ -10,7 +10,7 @@
 #include <stdio.h>
 #define MAXIDLEN 33
 
- extern FILE *fptr;
+extern FILE *fptr;
 extern char filename[MAXIDLEN];
 
 typedef enum  token_types{
@@ -19,6 +19,7 @@ typedef enum  token_types{
     PLUSOP, MINUSOP, SCANEOF
 } token;
 
+extern token current_token;
 
 typedef char string[MAXIDLEN];
 
