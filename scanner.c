@@ -117,5 +117,9 @@ int is_equal(char* temp, char* token)
 
 void lexical_error(int in_char){
     fprintf(stderr, "Lexical Error located in: %c", in_char);
+    if (remove(filename) == 0)
+        printf("Deleted successfully");
+    else
+        printf("Unable to delete the file");
     exit(1);
 }
