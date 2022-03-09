@@ -59,6 +59,7 @@ token scanner(void){
                 do
                     in_char = fgetc(fptr);
                 while (in_char!='\n');
+                return COMMENT;
             } else{
                 ungetc(c, fptr);
                 return MINUSOP;

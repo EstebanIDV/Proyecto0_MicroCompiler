@@ -27,7 +27,7 @@ void primary (expr_rec *nextexpr){
             match(RPAREN);
             break;
         case ID:
-            process_id();
+            *nextexpr = process_id();
             match(ID);
             break;
 
@@ -127,6 +127,8 @@ void statement(void){
             match(RPAREN);
             match(SEMICOLON);
             break;
+        case COMMENT:
+            break;
         default:
             syntax_error(tok);
             break;
@@ -142,6 +144,8 @@ void statement_list(void){
             case WRITE:
                 statement();
                 break;
+            case COMMENT:
+                nxt_token=scanner();
             default:
                 return;
         }

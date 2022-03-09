@@ -16,7 +16,7 @@ extern char filename[MAXIDLEN];
 typedef enum  token_types{
     BEGIN, END, READ, WRITE, ID, INTLITERAL,
     LPAREN, RPAREN, SEMICOLON, COMMA, ASSIGNOP,
-    PLUSOP, MINUSOP, SCANEOF
+    PLUSOP, MINUSOP, SCANEOF, COMMENT
 } token;
 
 extern token current_token;
