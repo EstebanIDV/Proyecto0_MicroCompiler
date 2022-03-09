@@ -104,10 +104,11 @@ void statement(void){
     switch (tok) {
         case ID:
             match(ID);
+            expr_rec tempIDEXPR = process_id();
             match(ASSIGNOP);
             expr_rec tempExpr;
             expression(&tempExpr);
-            //Write expression in file?
+            assign(tempIDEXPR, tempExpr); //Write expression in file
             match(SEMICOLON);
             break;
         case READ:

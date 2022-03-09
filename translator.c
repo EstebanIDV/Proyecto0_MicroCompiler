@@ -41,13 +41,14 @@ void generate(char *opcode, char *operand1, char *operand2){
     char instruction[200];
     FILE *fileOutput;
     fileOutput = fopen (filename, "w");
+    strcat(instruction, "\t");
     strcat(instruction, opcode);
     if(strcmp(operand1,"")!=0){
         strcat(instruction, " ");
         strcat(instruction, operand1);
     }
     if(strcmp(operand2,"")!=0){
-            strcat(instruction, " ");
+            strcat(instruction, ", ");
             strcat(instruction, operand2);
     }
 
@@ -62,7 +63,8 @@ void generate(char *opcode, char *operand1, char *operand2){
 void check_id(string s){
     if(! lookup(s)){
         enter(s);
-        generate("Declare", s, "Integer");
+        //generate("Declare", s, "Integer");
+        //El generate de aca se hace al final con todos los ids
     }
 }
 
@@ -113,7 +115,10 @@ void finish(void)
 
 void assign(expr_rec target, expr_rec source)
 {
-    generate("Store", extractexpression(source), extractexpression(target));
+    generate("mov", "eax", extractexpression(source));
+    generate("mov", extractexpression(target), "eax");
+    // variable = TEMP&#
+    //generate("Store", extractexpression(source), extractexpression(target));
 }
 
 
@@ -133,8 +138,13 @@ expr_rec gen_infix(expr_rec e1, op_rec op, expr_rec e2){
     e_rec.kind = TEMPEXPR;
 
     strcpy(e_rec.name, get_temp());
-    generate(extractoperator(op), extractexpression(e1),
-             extractexpression(e2));
+    // Generate nasm code
+    generate("mov", "eax", extractexpression(e2));
+    generate("mov", "ebx", extractexpression(e1));
+    generate(extractoperator(op), "eax",
+             "ebx");
+    generate("mov", extractexpression(e_rec), "eax"); // TEMP&# = e1 OP e2
+    //generate(extractoperator(op), extractexpression(e1), extractexpression(e2));
 
     return e_rec;
 }
@@ -153,7 +163,6 @@ expr_rec process_id(void)
     t.kind = IDEXPR;
     strcpy(t.name, token_buffer);
     return t;
-
 }
 
 expr_rec process_literal(void){
@@ -164,7 +173,6 @@ expr_rec process_literal(void){
 }
 
 void  write_expr(expr_rec out_expr){
-    generate("Write", extract(out_expr), "Integer", "");
-
+    generate("Write", extract(out_expr), "Integer");
 }
 
