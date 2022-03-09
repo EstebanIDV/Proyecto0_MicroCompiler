@@ -31,6 +31,7 @@ void primary (expr_rec *nextexpr){
 
         case INTLITERAL:
             match(INTLITERAL);
+            *nextexpr=process_literal();
             break;
         default:
             syntax_error(tok);
@@ -44,11 +45,7 @@ void add_op(op_rec *oper){
         match(tok);
     else
         syntax_error(tok);
-    if(tok==PLUSOP){
-        oper->operator = PLUS;
-    }else{
-        oper->operator =MINUS;
-    }
+    *oper = process_op();
 
 }
 
