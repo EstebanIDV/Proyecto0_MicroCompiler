@@ -9,6 +9,10 @@ FILE *fptr;
 char filename[MAXIDLEN];
 
 int main(int argc, char** argv) {
+    if (argc <= 1){
+        printf("Error, no program given to compile.\n");
+        exit(1);
+    }
     if (strlen(argv[1])>MAXIDLEN){
         printf("Error, the name of the file must be 32 characters long of lower.\n");
     }
@@ -32,8 +36,8 @@ int main(int argc, char** argv) {
 
     strcpy(filename, temp);
     printf("Nombre del archivo> %s\n", filename);
-    if ((fptr= fopen(argv[1],"r+")) == NULL){
-        printf("Error! opening file\n");
+    if ((fptr= fopen(argv[1],"r")) == NULL){
+        printf("Error! opening file %s\n", argv[1]);
         // Program exits if the file pointer returns NULL.
         exit(1);
     }

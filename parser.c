@@ -104,8 +104,8 @@ void statement(void){
     switch (tok) {
         case ID:
             match(ID);
-            expr_rec tempIDEXPR = process_id();
             match(ASSIGNOP);
+            expr_rec tempIDEXPR = process_id();
             expr_rec tempExpr;
             expression(&tempExpr);
             assign(tempIDEXPR, tempExpr); //Write expression in file

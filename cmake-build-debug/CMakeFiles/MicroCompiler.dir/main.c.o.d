@@ -49,4 +49,8 @@ CMakeFiles/MicroCompiler.dir/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /home/david/Documents/Proyecto0_MicroCompiler/types.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdbool.h \
- /home/david/Documents/Proyecto0_MicroCompiler/parser.h
+ /home/david/Documents/Proyecto0_MicroCompiler/parser.h \
+ /usr/include/string.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/include/strings.h

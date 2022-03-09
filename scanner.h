@@ -8,7 +8,7 @@
 
 #include "types.h"
 
-extern char token_buffer[50];
+extern char token_buffer[MAXIDLEN];
 extern token scanner(void);
 extern void clear_buffer(void);
 extern void buffer_char(int c);
