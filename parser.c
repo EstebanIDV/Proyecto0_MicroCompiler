@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 #include "types.h"
 #include "parser.h"
 #include "scanner.h"
@@ -26,6 +27,7 @@ void primary (expr_rec *nextexpr){
             match(RPAREN);
             break;
         case ID:
+            process_id();
             match(ID);
             break;
 
@@ -101,11 +103,12 @@ void id_list(void)
 
 void statement(void){
     token tok = next_token();
+    expr_rec tempIDEXPR;
     switch (tok) {
         case ID:
+            tempIDEXPR = process_id();
             match(ID);
             match(ASSIGNOP);
-            expr_rec tempIDEXPR = process_id();
             expr_rec tempExpr;
             expression(&tempExpr);
             assign(tempIDEXPR, tempExpr); //Write expression in file

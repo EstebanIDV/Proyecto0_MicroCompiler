@@ -47,7 +47,10 @@ CMakeFiles/MicroCompiler.dir/parser.c.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/lib/gcc/x86_64-linux-gnu/9/include/stdbool.h \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/stdbool.h /usr/include/string.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/include/strings.h \
  /home/david/Documents/Proyecto0_MicroCompiler/types.h \
  /home/david/Documents/Proyecto0_MicroCompiler/parser.h \
  /home/david/Documents/Proyecto0_MicroCompiler/scanner.h \
