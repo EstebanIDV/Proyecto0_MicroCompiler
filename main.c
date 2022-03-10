@@ -48,8 +48,6 @@ int main(int argc, char** argv) {
         strcat(filename, ".asm");
     }
     // COLOCAR EN FUNCION DE RENOMBRAR
-
-
     // printf("Nombre del archivo> %s\n", filename);
     if ((fptr= fopen(temp,"r")) == NULL){
         printf("Error! when opening file %s\n", argv[1]);
