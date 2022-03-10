@@ -1,1 +1,0 @@
-/usr/bin/cc -g CMakeFiles/MicroCompiler.dir/main.c.o CMakeFiles/MicroCompiler.dir/translator.c.o CMakeFiles/MicroCompiler.dir/symbols_table.c.o CMakeFiles/MicroCompiler.dir/parser.c.o CMakeFiles/MicroCompiler.dir/scanner.c.o -o MicroCompiler 

@@ -1,9 +1,9 @@
-CMakeLists.txt
-micro
-/cmake-build-debug
-/CMakeLists.txt
-*.idea
 
+
+micro
+cmake-build-debug/
+*.idea
+CMakeLists.txt
 # Executables
 *.exe
 *.out
