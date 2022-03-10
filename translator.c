@@ -45,9 +45,10 @@ char * extractexpression(expr_rec exp){
 
 void generate(char *opcode, char *operand1, char *operand2){
     char instruction[200];
+
     FILE *fileOutput;
     fileOutput = fopen (filename, "a+");
-    strcat(instruction, "\t");
+    strcpy(instruction, "\t");
     strcat(instruction, opcode);
     if(strcmp(operand1,"")!=0){
         strcat(instruction, " ");
