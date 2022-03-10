@@ -32,8 +32,9 @@ void primary (expr_rec *nextexpr){
             break;
 
         case INTLITERAL:
-            match(INTLITERAL);
             *nextexpr=process_literal();
+            match(INTLITERAL);
+
             break;
         default:
             syntax_error(tok);

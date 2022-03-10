@@ -29,7 +29,7 @@ token scanner(void){
             ungetc(c,fptr);
             return check_reserved();
         } else if (isdigit(in_char)){
-            buffer_char(in_char);
+            buffer_char((char)in_char);
             for(c=fgetc(fptr); isdigit(c); c=fgetc(fptr))
                 buffer_char(c);
             ungetc(c, fptr);
