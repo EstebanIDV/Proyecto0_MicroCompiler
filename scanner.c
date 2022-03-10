@@ -71,7 +71,13 @@ token scanner(void){
 }
 
 extern void buffer_char(int c){
-    token_buffer[strlen(token_buffer)] = c;
+    if (strlen(token_buffer)<MAXIDLEN)
+        token_buffer[strlen(token_buffer)] = c;
+    else{
+        printf("ERROR! An ID or expression exceeds length limits!\n");
+        lexical_error(c);
+        exit(1);
+    }
 };
 
 extern token check_reserved(void){
@@ -119,10 +125,10 @@ int is_equal(char* temp, char* token)
 }
 
 void lexical_error(int in_char){
-    fprintf(stderr, "Lexical Error located in: %c", in_char);
+    fprintf(stderr, "Lexical Error located in: %c\n", in_char);
     if (remove(filename) == 0)
-        printf("Deleted successfully");
+        printf(".asm Deleted successfully!\n");
     else
-        printf("Unable to delete the file");
+        printf("Unable to delete the .asm file!\n");
     exit(1);
 }
