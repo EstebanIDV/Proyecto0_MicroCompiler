@@ -37,6 +37,7 @@ int lookup(string sym) {
 // Function to insert a new symbol into the table giving the symbol to insert, should execute after lookup
 void enter(string sym) {
     struct node *newSymNode = malloc(sizeof(struct node));
+    strcpy(newSymNode->name, "");
     strcpy(newSymNode->name, sym);
     newSymNode->next = NULL;
 
