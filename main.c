@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
     // COLOCAR EN FUNCION DE RENOMBRAR
 
     strcpy(filename, temp);
-    printf("Nombre del archivo> %s\n", filename);
+    // printf("Nombre del archivo> %s\n", filename);
     if ((fptr= fopen(argv[1],"r")) == NULL){
         printf("Error! opening file %s\n", argv[1]);
         // Program exits if the file pointer returns NULL.

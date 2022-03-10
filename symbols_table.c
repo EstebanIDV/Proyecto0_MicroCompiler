@@ -37,7 +37,7 @@ int lookup(string sym) {
 // Function to insert a new symbol into the table giving the symbol to insert, should execute after lookup
 void enter(string sym) {
     struct node *newSymNode = malloc(sizeof(struct node));
-    strcat(newSymNode->name, sym);
+    strcpy(newSymNode->name, sym);
     newSymNode->next = NULL;
 
     // This is the first insertion where list if full empty
@@ -48,7 +48,6 @@ void enter(string sym) {
         // When the list is not empty just update the last pointer to point to the new node and update the actual node
         actualNode->next = newSymNode;
         actualNode = newSymNode;
-
     }
     listLen++;
 }

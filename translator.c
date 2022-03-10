@@ -60,6 +60,7 @@ void generate(char *opcode, char *operand1, char *operand2){
     }
 
     strcat(instruction, "\n");
+    strcat(instruction, "\0");
 
     fputs(instruction, fileOutput);
 
@@ -88,7 +89,6 @@ char *get_temp()
 
 void start(void)
 {
-    printf("llegamos start.\n");
     FILE *fileOutput;
     fileOutput = fopen (filename, "w");
     if(fileOutput==NULL){
