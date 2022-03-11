@@ -15,7 +15,7 @@ FILE *fptr;
 char filename[MAXIDLEN];
 token current_token;
 char token_buffer[];
-int writeamount=0;
+int writeAmount;
 
 // For sym table
 //extern int lookup(string s); // Check variable already exists
@@ -110,7 +110,8 @@ void finish(void)
         printf("Error opening file. Start in translator.c");
         exit(1);
     }
-
+    fputs("            mov ax, 4C00h\n"
+          "            int 21h ", fileOutput);
     // Creating data section
     fputs("section .data \n", fileOutput);
 
@@ -182,7 +183,7 @@ expr_rec process_literal(void){
 
 void  write_expr(expr_rec out_expr){
     //generate("Write", extract(out_expr), "Integer");
-    writeamount++;
+    writeAmount++;
     FILE *fileOutput;
     char printax[600];
     fileOutput = fopen (filename, "a+");
@@ -191,7 +192,8 @@ void  write_expr(expr_rec out_expr){
         exit(1);
     }
     strcpy(printax,"");
-    sprintf(printax, " push EAX\n   push EBX\n"
+    sprintf(printax, "\t\tpush EAX\n"
+                     "        push EBX\n"
                      "        push ECX\n"
                      "        push EDX\n"
                      "    \n"
@@ -212,7 +214,7 @@ void  write_expr(expr_rec out_expr){
                      "            int 21h\n"
                      "            loop c2PAX%d\n"
                      "    \n"
-                     "         mov ah, 02h \n"
+                     "        mov ah, 02h \n"
                      "\n"
                      "        mov dl, 10 \n"
                      "        int 21h   \n"
@@ -222,7 +224,7 @@ void  write_expr(expr_rec out_expr){
                      "        pop EDX\n"
                      "        pop ECX\n"
                      "        pop EBX\n"
-                     "        pop EAX\n",writeAmount,writeamount,writeamount,writeamount);
+                     "        pop EAX\n",writeAmount,writeAmount,writeAmount,writeAmount);
 
     generate("mov", "eax", extractexpression(out_expr));
     fputs(printax, fileOutput);
