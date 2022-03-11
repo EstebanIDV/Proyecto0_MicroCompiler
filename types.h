@@ -38,4 +38,6 @@ typedef  struct  expression{
     };
 } expr_rec;
 
+extern int writeAmount;
+
 #endif //MICROCOMPILER_TYPES_H

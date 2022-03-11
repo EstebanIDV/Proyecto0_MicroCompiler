@@ -15,6 +15,7 @@ FILE *fptr;
 char filename[MAXIDLEN];
 token current_token;
 char token_buffer[];
+int writeamount=0;
 
 // For sym table
 //extern int lookup(string s); // Check variable already exists
@@ -181,5 +182,50 @@ expr_rec process_literal(void){
 
 void  write_expr(expr_rec out_expr){
     //generate("Write", extract(out_expr), "Integer");
+    writeamount++;
+    FILE *fileOutput;
+    char printax[600];
+    fileOutput = fopen (filename, "a+");
+    if(fileOutput==NULL){
+        printf("Error opening file. Start in translator.c");
+        exit(1);
+    }
+    strcpy(printax,"");
+    sprintf(printax, " push EAX\n   push EBX\n"
+                     "        push ECX\n"
+                     "        push EDX\n"
+                     "    \n"
+                     "        xor edx, edx\n"
+                     "        xor ecx, ecx\n"
+                     "        mov ebx, 10\n"
+                     "\n"
+                     "        c1PAX%d: xor edx, edx\n"
+                     "            div ebx\n"
+                     "            push edx\n"
+                     "            inc ecx\n"
+                     "            cmp eax, 0\n"
+                     "            jne c1PAX%d\n"
+                     "            mov ah, 02h\n"
+                     "        c2PAX%d: \n"
+                     "            pop edx\n"
+                     "            add dl, 30h\n"
+                     "            int 21h\n"
+                     "            loop c2PAX%d\n"
+                     "    \n"
+                     "         mov ah, 02h \n"
+                     "\n"
+                     "        mov dl, 10 \n"
+                     "        int 21h   \n"
+                     "        mov dl, 13 \n"
+                     "        int 21h"
+                     "\n"
+                     "        pop EDX\n"
+                     "        pop ECX\n"
+                     "        pop EBX\n"
+                     "        pop EAX\n",writeAmount,writeamount,writeamount,writeamount);
+
+    generate("mov", "eax", extractexpression(out_expr));
+    fputs(printax, fileOutput);
+    fclose(fileOutput);
 }
 

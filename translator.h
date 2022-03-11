@@ -19,4 +19,5 @@ extern void finish(void);
 extern void start(void);
 extern expr_rec gen_infix(expr_rec e1, op_rec op, expr_rec e2);
 
+
 #endif //MICROCOMPILER_TRANSLATOR_H

@@ -86,10 +86,11 @@ void expr_list(void){
     expr_rec tempExpr;
     expression(&tempExpr);
     //Write expression in file?
-
+    write_expr(tempExpr);
     while (next_token() == COMMA) {
         match(COMMA);
         expression(&tempExpr);
+        write_expr(tempExpr);
     }
 }
 void id_list(void)
