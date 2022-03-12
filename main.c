@@ -5,8 +5,8 @@
 #include "string.h"
 
 // gcc -Wall scanner.c translator.c parser.c symbols_table.c main.c types.h -o micro
-FILE *fptr;
-char filename[MAXIDLEN];
+//FILE *fptr;
+//char filename[MAXIDLEN];
 
 int main(int argc, char** argv) {
     if (argc <= 1) {

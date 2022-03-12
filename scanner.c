@@ -9,9 +9,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-FILE *fptr;
-char filename[MAXIDLEN];
-char token_buffer[];
+//FILE *fptr;
+//char filename[MAXIDLEN];
+//char token_buffer[];
 
 token scanner(void){
     int in_char, c;

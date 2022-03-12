@@ -93,12 +93,18 @@ void expr_list(void){
         write_expr(tempExpr);
     }
 }
+
+// This is used to read function
 void id_list(void)
 {
     /* <id list> ::= ID ( , ID) */
+    expr_rec tempId = process_id();
     match(ID);
+    read_expr(tempId);
     while (next_token()==COMMA){
         match(COMMA);
+        expr_rec tempId = process_id();
+        read_expr(tempId);
         match(ID);
     }
 }
@@ -123,7 +129,7 @@ void statement(void){
             match(SEMICOLON);
             break;
         case WRITE:
-            match(WRITE); 
+            match(WRITE);
             match(LPAREN);
             expr_list();
             match(RPAREN);

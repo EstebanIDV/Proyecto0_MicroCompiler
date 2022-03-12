@@ -9,6 +9,7 @@
 
 extern expr_rec process_literal(void);
 extern void  write_expr(expr_rec out_expr);
+extern void read_expr(expr_rec out_expr);
 extern expr_rec process_id(void);
 extern op_rec process_op(void);
 extern void read_id(expr_rec in_var);
