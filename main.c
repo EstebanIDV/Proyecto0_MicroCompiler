@@ -56,5 +56,9 @@ int main(int argc, char** argv) {
     }
     system_goal();
     fclose(fptr);
+
+    // Calling system to translate and run nasm code
+    char command[200] = "nasm -felf32 entrada.asm && gcc -m32 -static entrada.o -o entrada && ./entrada";
+    system(command);
     return 0;
 }

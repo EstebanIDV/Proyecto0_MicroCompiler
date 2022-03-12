@@ -95,7 +95,7 @@ void start(void) {
         printf("Error opening file. Start in translator.c");
         exit(1);
     }
-    fputs("extern scanf\n global _main \n section .text \n _main: \n", fileOutput);
+    fputs("extern scanf \n extern printf \n global main \n section .text \n main: \n", fileOutput);
     fclose(fileOutput);
 
 }
@@ -108,11 +108,11 @@ void finish(void) {
         printf("Error opening file. Start in translator.c");
         exit(1);
     }
-    fputs("            mov ax, 4C00h\n"
-          "            int 21h ", fileOutput);
+    fputs("\nret\n\n", fileOutput);
     // Creating data section
     fputs("\n section .data \n", fileOutput);
     fputs("inputFormat: db \"%d\",0 \n", fileOutput);
+    fputs("inputVariableAux: db \"Por favor ingrese el valor de la variable:  \",0 \n", fileOutput);
 
     // Writing each variable to data section an initializing each with 0
     for (int i = 0; i < len(); ++i) {
@@ -235,18 +235,31 @@ void read_expr(expr_rec out_expr) {
     if (fileOutput == NULL) {
         printf("Error opening file. Start in translator.c");
         exit(1);
-    }else
-    {
-        generate("push", extractexpression(out_expr), "");
-        fputs("     push inputFormat\n"
-              "     call scanf\n\n", fileOutput);
+    } else {
+        // This is a Nasm section to get a value fom user
 
-//        fputs("     push \n"
-//              "     push inputFormat\n"
-//              "     call scanf", fileOutput)
+        fputs("; This is a section to get user input\n", fileOutput);
+
+        // Printing code to show user has to five a variable value
+        fputs(";Telling user to enter a variable value \n"
+              "\t push inputVariableAux \n"
+              "\t call printf \n"
+              "\t pop eax \n\n", fileOutput);
+
+        // Generating code to get user input add move that value to variable
+        char command[20] = "\t push ";
+//        generate("push", extractexpression(out_expr), "");
+
+        fputs(strcat(command, extractexpression(out_expr)), fileOutput);
+        fputs("\n\t push inputFormat\n"
+              "\t call scanf\n"
+              "\t pop eax \n"
+              "\t pop eax \n\n", fileOutput);
     };
 
     fclose(fileOutput);
 }
 
-
+//    ToDo: Cambiar el main para quitar _
+//    ToDo: extract expre quitar devuelva nombre de variable con tmp y parentesís cuadrados y cambiar a _
+//    ToDo: Agregar lo de sistem
