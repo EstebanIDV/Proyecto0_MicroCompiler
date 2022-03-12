@@ -149,12 +149,18 @@ expr_rec gen_infix(expr_rec e1, op_rec op, expr_rec e2){
 
     strcpy(e_rec.name, get_temp());
     // Generate nasm code
-    generate("mov", "eax", extractexpression(e2));
-    generate("mov", "ebx", extractexpression(e1));
-    generate(extractoperator(op), "eax",
-             "ebx");
-    generate("mov", extractexpression(e_rec), "eax"); // TEMP&# = e1 OP e2
-    //generate(extractoperator(op), extractexpression(e1), extractexpression(e2));
+    if (e1.kind == LITERALEXPR && e2.kind == LITERALEXPR){
+        char str[30];
+        sprintf(str, "%li",(strtol(extractexpression(e2), NULL, 10) + strtol(extractexpression(e1), NULL, 10)));
+        generate("mov", "eax", str);
+        generate("mov", extractexpression(e_rec), "eax"); // TEMP&# = e1 OP e2
+    } else {
+        generate("mov", "eax", extractexpression(e2));
+        generate("mov", "ebx", extractexpression(e1));
+        generate(extractoperator(op), "eax", "ebx");
+        generate("mov", extractexpression(e_rec), "eax"); // TEMP&# = e1 OP e2
+        //generate(extractoperator(op), extractexpression(e1), extractexpression(e2));
+    }
 
     return e_rec;
 }
