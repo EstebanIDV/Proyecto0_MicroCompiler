@@ -146,15 +146,24 @@ op_rec process_op(void)
 expr_rec gen_infix(expr_rec e1, op_rec op, expr_rec e2){
     expr_rec e_rec;
     e_rec.kind = TEMPEXPR;
-
-    strcpy(e_rec.name, get_temp());
     // Generate nasm code
     if (e1.kind == LITERALEXPR && e2.kind == LITERALEXPR){
         char str[30];
-        sprintf(str, "%li",(strtol(extractexpression(e2), NULL, 10) + strtol(extractexpression(e1), NULL, 10)));
-        generate("mov", "eax", str);
-        generate("mov", extractexpression(e_rec), "eax"); // TEMP&# = e1 OP e2
+        if (op.operator==MINUS)
+            sprintf(str, "%d",(atoi(extractexpression(e1)) - atoi(extractexpression(e2))));
+        else
+            sprintf(str, "%d",(atoi(extractexpression(e1)) + atoi(extractexpression(e2))));
+
+        if(next_token()==MINUSOP || next_token()==PLUSOP){
+            e_rec.kind = LITERALEXPR;
+            (void) sscanf(str,"%d",& e_rec.val);
+        } else {
+            strcpy(e_rec.name, get_temp());
+            generate("mov", "eax", str);
+            generate("mov", extractexpression(e_rec), "eax"); // TEMP&# = e1 OP e2
+        }
     } else {
+        strcpy(e_rec.name, get_temp());
         generate("mov", "eax", extractexpression(e2));
         generate("mov", "ebx", extractexpression(e1));
         generate(extractoperator(op), "eax", "ebx");

@@ -1,7 +1,9 @@
 global _main 
  section .text 
  _main: 
-	mov eax, 71
+	mov eax, A
+	mov ebx, 70
+	add eax, ebx
 	mov Temp&1, eax
 	mov eax, Temp&1
 	mov B, eax
@@ -14,6 +16,6 @@ global _main
             mov ax, 4C00h
             int 21h section .data 
 B: dd 0 
-Temp&1: dd 0 
 A: dd 0 
+Temp&1: dd 0 
 Temp&2: dd 0 
