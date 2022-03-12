@@ -1,21 +1,23 @@
-global _main 
- section .text 
- _main: 
-	mov eax, A
+global _main
+section .text
+_main:
+	mov eax, [A]
 	mov ebx, 70
 	add eax, ebx
-	mov Temp&1, eax
-	mov eax, Temp&1
-	mov B, eax
+	mov [Temp1], eax
+	mov eax, [Temp1]
+	mov [B], eax
 	mov eax, 5
-	mov ebx, B
+	mov ebx, [B]
 	add eax, ebx
-	mov Temp&2, eax
-	mov eax, Temp&2
-	mov A, eax
-            mov ax, 4C00h
-            int 21h section .data 
+	mov [Temp2], eax
+	mov eax, [Temp2]
+	mov [A], eax
+	mov ebx, 0 ; exit code, 0=normal
+	mov eax, 1	; exit command to kernel
+	int	0x80
+section .data 
 B: dd 0 
 A: dd 0 
-Temp&1: dd 0 
-Temp&2: dd 0 
+Temp1: dd 0
+Temp2: dd 0

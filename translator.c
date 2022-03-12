@@ -96,7 +96,7 @@ void start(void)
         printf("Error opening file. Start in translator.c");
         exit(1);
     }
-    fputs("global _main \n section .text \n _main: \n", fileOutput);
+    fputs("global _main\nsection .text\n_main:\n", fileOutput);
     fclose(fileOutput);
 
 }
@@ -110,8 +110,7 @@ void finish(void)
         printf("Error opening file. Start in translator.c");
         exit(1);
     }
-    fputs("            mov ax, 4C00h\n"
-          "            int 21h ", fileOutput);
+    fputs("\tmov ebx, 0 ; exit code, 0=normal\n\tmov eax, 1	; exit command to kernel\n\tint	0x80\n", fileOutput);
     // Creating data section
     fputs("section .data \n", fileOutput);
 
