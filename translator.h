@@ -18,6 +18,7 @@ extern string* extract(expr_rec expr); // Returns a pointer
 extern void finish(void);
 extern void start(void);
 extern expr_rec gen_infix(expr_rec e1, op_rec op, expr_rec e2);
+extern expr_rec gen_conditional(expr_rec e1,expr_rec e2, expr_rec e3);
 
 
 #endif //MICROCOMPILER_TRANSLATOR_H
