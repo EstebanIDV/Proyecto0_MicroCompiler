@@ -96,7 +96,7 @@ void start(void)
         printf("Error opening file. Start in translator.c");
         exit(1);
     }
-    fputs("global _main\nsection .text\n_main:\n", fileOutput);
+    fputs("global main\nsection .text\nmain:\n", fileOutput);
     fclose(fileOutput);
 
 }
