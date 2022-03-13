@@ -1,23 +1,28 @@
-global _main
-section .text
-_main:
+extern scanf 
+ extern printf 
+ global main 
+ section .text 
+ main: 
 	mov eax, [A]
 	mov ebx, 70
 	add eax, ebx
-	mov [Temp1], eax
-	mov eax, [Temp1]
+	mov [Temp_1], eax
+	mov eax, [Temp_1]
 	mov [B], eax
 	mov eax, 5
 	mov ebx, [B]
 	add eax, ebx
-	mov [Temp2], eax
-	mov eax, [Temp2]
+	mov [Temp_2], eax
+	mov eax, [Temp_2]
 	mov [A], eax
-	mov ebx, 0 ; exit code, 0=normal
-	mov eax, 1	; exit command to kernel
-	int	0x80
-section .data 
+
+ret
+
+
+ section .data 
+inputFormat: db "%d",0 
+inputVariableAux: db "Por favor ingrese el valor de la variable:  ",0 
 B: dd 0 
 A: dd 0 
-Temp1: dd 0
-Temp2: dd 0
+Temp_1: dd 0 
+Temp_2: dd 0 

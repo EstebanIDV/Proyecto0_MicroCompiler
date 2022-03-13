@@ -33,10 +33,14 @@ char *extractoperator(op_rec op) {
 
 char *extractexpression(expr_rec exp) {
     static string tostring = "";
+    string temp;
     switch (exp.kind) {
         case IDEXPR:
         case TEMPEXPR:
-            sprintf(tostring, "%s", exp.name);
+            strcpy(temp, "[");
+            strcat(temp, exp.name);
+            strcat(temp, "]");
+            sprintf(tostring, "%s", temp);
             return tostring;
         case LITERALEXPR:
             sprintf(tostring, "%d", exp.val);
@@ -83,7 +87,7 @@ char *get_temp() {
     static char tempname[MAXIDLEN];
 
     max_temp++;
-    sprintf(tempname, "Temp&%d", max_temp);
+    sprintf(tempname, "Temp_%d", max_temp);
     check_id(tempname);
     return tempname;
 };
