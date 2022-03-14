@@ -125,7 +125,7 @@ int is_equal(char* temp, char* token)
 }
 
 void lexical_error(int in_char){
-    fprintf(stderr, "Lexical Error located in: %c\n", in_char);
+    fprintf(stderr, "Lexical Error located in: %c ", in_char);
     if (remove(filename) == 0)
         printf(".asm Deleted successfully!\n");
     else

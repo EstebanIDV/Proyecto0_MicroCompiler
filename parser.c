@@ -211,10 +211,10 @@ void match(token t){
 }
 */
 extern void syntax_error(token t){
-    fprintf(stdout, "Syntax Error in %s token. Expected %i instead.", token_buffer, t);
+    fprintf(stdout, "Syntax Error in %s token. Expected %i instead. ", token_buffer, t);
     if (remove(filename) == 0)
-        printf("Deleted successfully");
+        printf("Deleted successfully\n");
     else
-        printf("Unable to delete the file");
+        printf("Unable to delete the file\n");
     exit(1);
 };
