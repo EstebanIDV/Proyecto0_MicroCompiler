@@ -62,3 +62,10 @@ int main(int argc, char** argv) {
     system(command);
     return 0;
 }
+
+
+// push dword variable
+// push inputFormat
+// call printf
+// pop eax
+// pop eax

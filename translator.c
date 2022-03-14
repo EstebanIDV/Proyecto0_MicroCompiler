@@ -49,6 +49,23 @@ char *extractexpression(expr_rec exp) {
     return "";
 }
 
+// This function extracts the expression without add "[" "]"
+char *extractRawExpression(expr_rec exp) {
+    static string tostring = "";
+    string temp;
+    switch (exp.kind) {
+        case IDEXPR:
+        case TEMPEXPR:
+            strcpy(temp, exp.name);
+            sprintf(tostring, "%s", temp);
+            return tostring;
+        case LITERALEXPR:
+            sprintf(tostring, "%d", exp.val);
+            return tostring;
+    }
+    return "";
+}
+
 void generate(char *opcode, char *operand1, char *operand2) {
     char instruction[200];
 
@@ -114,8 +131,9 @@ void finish(void) {
     }
     fputs("\nret\n\n", fileOutput);
     // Creating data section
-    fputs("\n section .data \n", fileOutput);
-    fputs("inputFormat: db \"%d\",0 \n", fileOutput);
+    fputs("\nsection .data \n", fileOutput);
+    fputs("inputFormat: db \"%d\",0 \n"
+          "eol: db \"\", 10,0 \n", fileOutput);
     fputs("inputVariableAux: db \"Por favor ingrese el valor de la variable:  \",0 \n", fileOutput);
 
     // Writing each variable to data section an initializing each with 0
@@ -165,8 +183,8 @@ expr_rec gen_infix(expr_rec e1, op_rec op, expr_rec e2) {
         }
     } else {
         strcpy(e_rec.name, get_temp());
-        generate("mov", "eax", extractexpression(e2));
-        generate("mov", "ebx", extractexpression(e1));
+        generate("mov", "eax", extractexpression(e1));
+        generate("mov", "ebx", extractexpression(e2));
         generate(extractoperator(op), "eax", "ebx");
         generate("mov", extractexpression(e_rec), "eax"); // TEMP&# = e1 OP e2
         //generate(extractoperator(op), extractexpression(e1), extractexpression(e2));
@@ -197,52 +215,31 @@ expr_rec process_literal(void) {
 
 void write_expr(expr_rec out_expr) {
     //generate("Write", extract(out_expr), "Integer");
-    writeAmount++;
     FILE *fileOutput;
-    char printax[600];
     fileOutput = fopen(filename, "a+");
     if (fileOutput == NULL) {
         printf("Error opening file. Start in translator.c");
         exit(1);
-    }
-    strcpy(printax, "");
-    sprintf(printax, "\t\tpush EAX\n"
-                     "        push EBX\n"
-                     "        push ECX\n"
-                     "        push EDX\n"
-                     "    \n"
-                     "        xor edx, edx\n"
-                     "        xor ecx, ecx\n"
-                     "        mov ebx, 10\n"
-                     "\n"
-                     "        c1PAX%d: xor edx, edx\n"
-                     "            div ebx\n"
-                     "            push edx\n"
-                     "            inc ecx\n"
-                     "            cmp eax, 0\n"
-                     "            jne c1PAX%d\n"
-                     "            mov ah, 02h\n"
-                     "        c2PAX%d: \n"
-                     "            pop edx\n"
-                     "            add dl, 30h\n"
-                     "            int 21h\n"
-                     "            loop c2PAX%d\n"
-                     "    \n"
-                     "        mov ah, 02h \n"
-                     "\n"
-                     "        mov dl, 10 \n"
-                     "        int 21h   \n"
-                     "        mov dl, 13 \n"
-                     "        int 21h"
-                     "\n"
-                     "        pop EDX\n"
-                     "        pop ECX\n"
-                     "        pop EBX\n"
-                     "        pop EAX\n", writeAmount, writeAmount, writeAmount, writeAmount);
+    }else
+    {
 
-    generate("mov", "eax", extractexpression(out_expr));
-    fputs(printax, fileOutput);
-    fclose(fileOutput);
+
+        char command[50] = "\t push dword ";
+        strcat(command, extractexpression(out_expr));
+
+        fputs(command, fileOutput);
+        fputs("\n\tpush inputFormat \n"
+              "\t call printf \n"
+              "\tpop eax \n"
+              "\tpop eax \n"
+              "\n\n;Printing end of line\n"
+              "\tpush eol \n"
+              "\tcall printf \n"
+              "\tpop eax \n\n", fileOutput);
+
+//    generate("mov", "eax", extractexpression(out_expr));
+        fclose(fileOutput);
+    }
 }
 
 
@@ -269,7 +266,7 @@ void read_expr(expr_rec out_expr) {
         char command[20] = "\t push ";
 //        generate("push", extractexpression(out_expr), "");
 
-        fputs(strcat(command, extractexpression(out_expr)), fileOutput);
+        fputs(strcat(command, extractRawExpression(out_expr)), fileOutput);
         fputs("\n\t push inputFormat\n"
               "\t call scanf\n"
               "\t pop eax \n"
@@ -278,7 +275,3 @@ void read_expr(expr_rec out_expr) {
 
     fclose(fileOutput);
 }
-
-//    ToDo: Cambiar el main para quitar _
-//    ToDo: extract expre quitar devuelva nombre de variable con tmp y parentesís cuadrados y cambiar a _
-//    ToDo: Agregar lo de sistem
