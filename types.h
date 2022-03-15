@@ -16,7 +16,7 @@ extern char filename[MAXIDLEN];
 typedef enum  token_types{
     BEGIN, END, READ, WRITE, ID, INTLITERAL,
     LPAREN, RPAREN, SEMICOLON, COMMA, ASSIGNOP,
-    PLUSOP, MINUSOP, SCANEOF, COMMENT
+    PLUSOP, MINUSOP, SCANEOF, COMMENT, CONDITIONAL
 } token;
 
 extern token current_token;
@@ -39,5 +39,6 @@ typedef  struct  expression{
 } expr_rec;
 
 extern int writeAmount;
+extern int condAmount;
 
 #endif //MICROCOMPILER_TYPES_H

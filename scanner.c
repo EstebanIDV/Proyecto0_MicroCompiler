@@ -44,6 +44,8 @@ token scanner(void){
             return COMMA;
         else if (in_char=='+')
             return PLUSOP;
+        else if (in_char=='|')
+            return CONDITIONAL;
         else if (in_char==':'){
             c=fgetc(fptr);
             if(c=='=')

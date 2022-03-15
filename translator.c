@@ -16,6 +16,7 @@
 //token current_token;
 //char token_buffer[];
 int writeAmount;
+int condAmount;
 
 // For sym table
 //extern int lookup(string s); // Check variable already exists
@@ -162,7 +163,33 @@ op_rec process_op(void) {
     return o;
 }
 
-expr_rec gen_infix(expr_rec e1, op_rec op, expr_rec e2) {
+expr_rec gen_conditional(expr_rec e1,expr_rec e2, expr_rec e3){
+    expr_rec e_rec;
+    e_rec.kind = TEMPEXPR;
+    char strcond1[100];
+    char strcond2[100];
+    strcpy(strcond1, "");
+    strcpy(strcond2, "");
+    // Generate nasm code
+
+    strcpy(e_rec.name, get_temp());
+    generate("mov", "eax", extractexpression(e1));
+    generate("cmp", "eax", "0");
+    sprintf(strcond1, "equj%d",condAmount);
+    sprintf(strcond2, "nequj%d",condAmount);
+    generate("je", strcond1, "");
+    generate("mov", extractexpression(e_rec), extractexpression(e2));
+    generate("jmp", strcond2, "");
+    strcat(strcond1,":");
+    generate(strcond1, "", "");
+    generate("mov", extractexpression(e_rec), extractexpression(e3)); // TEMP&# = e1 OP e2
+    strcat(strcond2,":");
+    generate(strcond2, "", "");
+
+    return e_rec;
+}
+
+expr_rec gen_infix(expr_rec e1, op_rec op, expr_rec e2){
     expr_rec e_rec;
     e_rec.kind = TEMPEXPR;
     // Generate nasm code

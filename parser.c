@@ -23,7 +23,7 @@ void primary (expr_rec *nextexpr){
     switch (tok) {
         case LPAREN:
             match(LPAREN);
-            expression(nextexpr);
+            expressionParen(nextexpr);
             match(RPAREN);
             break;
         case ID:
@@ -78,6 +78,61 @@ void expression(expr_rec *result){
         primary(& right_operand);
         left_operand= gen_infix(left_operand,op,right_operand);
     }
+    *result=left_operand;
+}
+
+void expressionParen(expr_rec *result){
+    expr_rec left_operand, right_operand, operandconditional1, operandconditional2, operandcondtional3;
+    op_rec op;
+
+    primary(& left_operand);
+
+    while (next_token()==PLUSOP|| next_token()==MINUSOP){
+        if(next_token()==CONDITIONAL){
+            break;
+        }
+        add_op(& op);
+        primary(& right_operand);
+        left_operand= gen_infix(left_operand,op,right_operand);
+    }
+    if(next_token()==CONDITIONAL){
+        match(CONDITIONAL);
+        operandconditional1=left_operand;
+
+
+        primary(& left_operand);
+
+
+        while (next_token()==PLUSOP|| next_token()==MINUSOP){
+            if(next_token()==CONDITIONAL){
+                break;
+            }
+            add_op(& op);
+            primary(& right_operand);
+            left_operand= gen_infix(left_operand,op,right_operand);
+        }
+
+        match(CONDITIONAL);
+
+        operandconditional2=left_operand;
+
+        primary(& left_operand);
+        while (next_token()==PLUSOP|| next_token()==MINUSOP){
+            if(next_token()==CONDITIONAL){
+                break;
+            }
+            add_op(& op);
+            primary(& right_operand);
+            left_operand= gen_infix(left_operand,op,right_operand);
+        }
+
+
+        left_operand=gen_conditional(operandconditional1, operandconditional2, left_operand);
+
+
+
+    }
+
     *result=left_operand;
 }
 
@@ -138,6 +193,7 @@ void statement(void){
             break;
         case COMMENT:
             break;
+
         default:
             syntax_error(tok);
             break;
