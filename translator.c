@@ -178,11 +178,13 @@ expr_rec gen_conditional(expr_rec e1,expr_rec e2, expr_rec e3){
     sprintf(strcond1, "equj%d",condAmount);
     sprintf(strcond2, "nequj%d",condAmount);
     generate("je", strcond1, "");
-    generate("mov", extractexpression(e_rec), extractexpression(e2));
+    generate("mov", "eax", extractexpression(e2));
+    generate("mov", extractexpression(e_rec), "eax");
     generate("jmp", strcond2, "");
     strcat(strcond1,":");
     generate(strcond1, "", "");
-    generate("mov", extractexpression(e_rec), extractexpression(e3)); // TEMP&# = e1 OP e2
+    generate("mov", "eax", extractexpression(e3)); // TEMP&# = e1 OP e2
+    generate("mov", extractexpression(e_rec), "eax"); // TEMP&# = e1 OP e2
     strcat(strcond2,":");
     generate(strcond2, "", "");
 

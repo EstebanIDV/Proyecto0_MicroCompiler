@@ -82,7 +82,7 @@ void expression(expr_rec *result){
 }
 
 void expressionParen(expr_rec *result){
-    expr_rec left_operand, right_operand, operandconditional1, operandconditional2, operandcondtional3;
+    expr_rec left_operand, right_operand, operandconditional1, operandconditional2;
     op_rec op;
 
     primary(& left_operand);
