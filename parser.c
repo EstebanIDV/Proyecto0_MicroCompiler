@@ -23,7 +23,7 @@ void primary (expr_rec *nextexpr){
     switch (tok) {
         case LPAREN:
             match(LPAREN);
-            expressionParen(nextexpr);
+            expression(nextexpr);
             match(RPAREN);
             break;
         case ID:
@@ -68,20 +68,8 @@ void add_op(op_rec *oper){
  *
  */
 
+
 void expression(expr_rec *result){
-    expr_rec left_operand, right_operand;
-    op_rec op;
-
-    primary(& left_operand);
-    while (next_token()==PLUSOP|| next_token()==MINUSOP){
-        add_op(& op);
-        primary(& right_operand);
-        left_operand= gen_infix(left_operand,op,right_operand);
-    }
-    *result=left_operand;
-}
-
-void expressionParen(expr_rec *result){
     expr_rec left_operand, right_operand, operandconditional1, operandconditional2;
     op_rec op;
 

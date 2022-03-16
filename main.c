@@ -20,6 +20,7 @@ int main(int argc, char** argv) {
         printf("Error, the name of the file must be 32 characters long of lower.\n");
     }
     char temp[MAXIDLEN];
+    char rawname[MAXIDLEN];
     strcpy(temp, argv[1]);
     int flag = 0;
     int i = 0;
@@ -31,7 +32,11 @@ int main(int argc, char** argv) {
         }
         i++;
     }
+
     strcpy(filename, temp);
+
+
+
     if (flag == 1) {
         filename[i + 1] = *"a";
         filename[i + 2] = *"s";
@@ -44,6 +49,7 @@ int main(int argc, char** argv) {
         }
     }
     else {
+
         strcat(temp, ".txt");
         strcat(filename, ".asm");
     }
@@ -58,7 +64,13 @@ int main(int argc, char** argv) {
     fclose(fptr);
 
     // Calling system to translate and run nasm code
-    char command[200] = "nasm -f elf32 entrada.asm && gcc -m32 -static entrada.o -o entrada && ./entrada";
+
+    //char command[200] = "nasm -f elf32 entrada.asm && gcc -m32 -static entrada.o -o entrada && ./entrada";
+    char command[200];
+    strcpy(rawname,"");
+    strcpy(rawname,filename);
+    rawname[strlen(rawname)-4] = *"\0";
+    sprintf(command,"nasm -f elf32 %s && gcc -m32 -static %s.o -o %s && ./%s", filename, rawname, rawname,rawname);
     system(command);
     return 0;
 }

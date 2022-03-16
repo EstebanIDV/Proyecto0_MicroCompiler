@@ -166,6 +166,7 @@ op_rec process_op(void) {
 expr_rec gen_conditional(expr_rec e1,expr_rec e2, expr_rec e3){
     expr_rec e_rec;
     e_rec.kind = TEMPEXPR;
+    condAmount++;
     char strcond1[100];
     char strcond2[100];
     strcpy(strcond1, "");

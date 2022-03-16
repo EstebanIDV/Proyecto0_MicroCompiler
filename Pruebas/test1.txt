@@ -1,0 +1,19 @@
+BEGIN
+READ(A,B);
+C:= A;
+
+D:= B;
+
+B:= A + B;
+A:= B - A;
+B:= B - A;
+WRITE(A,B);
+
+
+D:= A-D|0|1; --Comparacion si son iguales a las variables iniciales entonces retorna
+C:= B-C|0|1;
+
+
+WRITE(D);
+WRITE(C);
+END
