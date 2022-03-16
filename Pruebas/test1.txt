@@ -1,17 +1,16 @@
 BEGIN
 READ(A,B);
-C:= A;
-
+C:= A; --Guarda ambas variables para compararlas despues
 D:= B;
 
 B:= A + B;
 A:= B - A;
 B:= B - A;
-WRITE(A,B);
+WRITE(A,B); --A deberia tener el valor original de B y B el original de A
 
 
 D:= A-D|0|1; --Comparacion si son iguales a las variables iniciales entonces retorna
-C:= B-C|0|1;
+C:= B-C|0|1; --ambas deberian dar 1
 
 
 WRITE(D);
