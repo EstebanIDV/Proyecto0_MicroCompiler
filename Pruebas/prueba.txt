@@ -1,0 +1,6 @@
+BEGIN
+READ(B);
+A:= (B-20|20|10);
+C:= A + B + F + 1;
+WRITE(C);
+END

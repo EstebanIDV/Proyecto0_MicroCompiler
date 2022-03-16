@@ -1,0 +1,6 @@
+BEGIN
+AASNDASB:= 0;
+READ(B); -- asdasd Hola
+C:= 1 - 2 + B;
+WRITE(C);
+END

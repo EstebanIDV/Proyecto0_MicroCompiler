@@ -1,7 +1,0 @@
-BEGIN
-B:= 1;
-A:= (0+34|1|2);
-READ(B);
-C:= A + B + F + 1;
-WRITE(A);
-END
