@@ -211,6 +211,7 @@ void statement_list(void){
                 break;
             case COMMENT:
                 nxt_token=scanner();
+                break;
             default:
                 return;
         }
