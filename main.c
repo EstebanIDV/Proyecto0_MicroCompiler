@@ -26,6 +26,10 @@ int main(int argc, char** argv) {
     int i = 0;
     while (i < strlen(temp)) {
         if (temp[i] == *".") {
+            if (strncmp(&temp[i+1], "t", 1)!=0 || strncmp(&temp[i+2], "x", 1)!=0 || strncmp(&temp[i+3], "t", 1)!=0 || strncmp(&temp[i+4],"\000", 1)!=0){
+                printf("Error, the file extension is not .txt!\n");
+                exit(1);
+            }
             strcat(filename, &temp[i]);
             flag = 1;
             break;

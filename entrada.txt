@@ -1,6 +1,6 @@
 BEGIN
-A:= 0;
+AASNDASB:= 0;
 READ(B); -- asdasd Hola
-C:= A + B + F + 1;
+C:= 1 - 2 + B;
 WRITE(C);
 END
